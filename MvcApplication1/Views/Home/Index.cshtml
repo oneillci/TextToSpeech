@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<h2>@ViewBag.Message</h2>
+<p>
+    To learn more about ASP.NET MVC visit <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
+</p>
+
+@using(Html.BeginForm())
+{
+    @Html.ValidationSummary()
+
+    <span>@ViewBag.Captcha</span>
+    <input name="captcha" id="captcha" />
+    @*<audio preload="none" src="@Url.Action("GetCaptchaAudio", "Home")">
+        <span>audio not available</span>
+    </audio>*@
+        <a href="@Url.Action("GetCaptchaAudio", "Home")">Stream</a>
+        <a href="@Url.Action("DownloadFile", "Home")">Download</a>
+    <input type="submit" value="Submit" />
+}
